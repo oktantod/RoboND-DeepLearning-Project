@@ -33,6 +33,7 @@ The simulator binary can be downloaded [here](https://github.com/udacity/RoboND-
 
 # Software used for Project Training:
 
+* Windows 8.1 64bit
 * Python 3.x
 * Tensorflow 1.2.1
 * NumPy 1.11
@@ -49,15 +50,14 @@ The simulator binary can be downloaded [here](https://github.com/udacity/RoboND-
 # Hardware used for Project Training:
 
 * Notebook ASUS N56V
-** Intel(R) Core(TM) i7 - 3630QM
-** RAM 8 GB
-** 64-bit OS
+- Intel(R) Core(TM) i7 - 3630QM
+- RAM 8 GB
 * NVIDIA GeForce 650M (2 GB with 384 core)
 
 ## Implement the Segmentation Network
 1. Download the training dataset from above and extract to the project `data` directory.
 2. Implement your solution in model_training.ipynb
-3. Train the network locally, or on [AWS](https://classroom.udacity.com/nanodegrees/nd209/parts/09664d24-bdec-4e64-897a-d0f55e177f09/modules/cac27683-d5f4-40b4-82ce-d708de8f5373/lessons/197a058e-44f6-47df-8229-0ce633e0a2d0/concepts/27c73209-5d7b-4284-8315-c0e07a7cd87f?contentVersion=1.0.0&contentLocale=en-us).
+3. Train the network locally
 4. Continue to experiment with the training data and network until you attain the score you desire.
 5. Once you are comfortable with performance on the training dataset, see how it performs in live simulation!
 
@@ -166,3 +166,10 @@ $ python follower.py my_amazing_model.h5
 ```
 
 **Note:** If you'd like to see an overlay of the detected region on each camera frame from the drone, simply pass the `--pred_viz` parameter to `follower.py`
+
+[![Udacity - Robotics NanoDegree Program](https://s3-us-west-1.amazonaws.com/udacity-robotics/Extra+Images/RoboND_flag.png)](https://www.udacity.com/robotics)
+
+# Write Up Report Follow Me Project
+## Write Up by Dedi
+
+
