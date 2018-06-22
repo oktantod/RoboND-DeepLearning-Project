@@ -172,6 +172,6 @@ $ python follower.py my_amazing_model.h5
 # Write Up Report Follow Me Project
 ## Write Up by Dedi
 
-[Video Follow Me Result] (https://youtu.be/cotA3RwEjA8)
+[Video] (https://youtu.be/cotA3RwEjA8)
 
 
