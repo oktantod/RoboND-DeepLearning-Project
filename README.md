@@ -23,17 +23,16 @@ Save the following three files into the data folder of the cloned repository.
 
 [Sample Evaluation Data](https://s3-us-west-1.amazonaws.com/udacity-robotics/Deep+Learning+Data/Project/sample_evaluation_data.zip)
 
+We used above data training and validation for train weight for FCN.
+
 **Download the QuadSim binary**
 
 To interface your neural net with the QuadSim simulator, you must use a version QuadSim that has been custom tailored for this project. The previous version that you might have used for the Controls lab will not work.
 
 The simulator binary can be downloaded [here](https://github.com/udacity/RoboND-DeepLearning/releases/latest)
 
-**Install Dependencies**
+# Software used for Project Training:
 
-You'll need Python 3 and Jupyter Notebooks installed to do this project.  The best way to get setup with these if you are not already is to use Anaconda following along with the [RoboND-Python-Starterkit](https://github.com/udacity/RoboND-Python-StarterKit).
-
-If for some reason you choose not to use Anaconda, you must install the following frameworks and packages on your system:
 * Python 3.x
 * Tensorflow 1.2.1
 * NumPy 1.11
@@ -46,6 +45,14 @@ If for some reason you choose not to use Anaconda, you must install the followin
 * scikit-image
 * transforms3d
 * PyQt4/Pyqt5
+
+# Hardware used for Project Training:
+
+* Notebook ASUS N56V
+** Intel(R) Core(TM) i7 - 3630QM
+** RAM 8 GB
+** 64-bit OS
+* NVIDIA GeForce 650M (2 GB with 384 core)
 
 ## Implement the Segmentation Network
 1. Download the training dataset from above and extract to the project `data` directory.
