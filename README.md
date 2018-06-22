@@ -172,6 +172,15 @@ $ python follower.py my_amazing_model.h5
 # Write Up Report Follow Me Project
 ## Write Up by Dedi
 
-[Video] (https://youtu.be/cotA3RwEjA8)
+# Test the model that have been created in the quadcopter simulator
+
+The model weights selected is model_weights_new that have final score 40.74, to run this model weight
+
+```bash
+>python follower.py model_weights_new
+```
+
+
+[!Video] (https://youtu.be/cotA3RwEjA8)
 
 
