@@ -191,7 +191,8 @@ In this learning project, I didn't record train, validation and sample_evaluatio
 
 # The Design Network Model
 
-
+[FCN_Design]: ./docs/misc/FCN Design.jpg
+![alt text][FCN_Design]
 
 # Test the model that have been created in the quadcopter simulator
 
@@ -200,5 +201,5 @@ The model weights selected is model_weights_new that have final score 40.74, to 
 ```bash
 >python follower.py model_weights_new
 ```
-[![Simulation Video]](https://youtu.be/cotA3RwEjA8)
+[[Simulation Video]](https://youtu.be/cotA3RwEjA8)
 
