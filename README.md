@@ -268,7 +268,50 @@ def decoder_block(small_ip_layer, large_ip_layer, filters):
     return output_layer
 ```
 
+### The FCN Model
+Now that you have the encoder and decoder blocks ready, go ahead and build your FCN architecture!
+
+There are three steps:
+
+*    Add encoder blocks to build the encoder layers. This is similar to how you added regular convolutional layers in your CNN lab.
+*    Add a 1x1 Convolution layer using the conv2d_batchnorm() function. Remember that 1x1 Convolutions require a kernel and stride of 1.
+*    Add decoder blocks for the decoder layers.
+
 ```python
+def fcn_model(inputs, num_classes):
+    
+    # TODO Add Encoder Blocks. 
+    # Remember that with each encoder layer, the depth of your model (the number of filters) increases.
+    print("Inputs  shape:",inputs.shape, "  \tImage Size in Pixels")
+    
+    layer01 = encoder_block(inputs , filters=32 , strides=2)
+    print("layer 01 shape:",layer01.shape, "  \tEncoder Block 1")
+    
+    layer02 = encoder_block(layer01, filters=64 , strides=2)
+    print("layer 02 shape:",layer02.shape, "  \tEncoder Block 2")
+    
+    layer03 = encoder_block(layer02, filters=128, strides=2)
+    print("layer 03 shape:",layer03.shape, "\tEncoder Block 3")
+
+    # TODO Add 1x1 Convolution layer using conv2d_batchnorm().
+    layer04 = conv2d_batchnorm(layer03, filters=256, kernel_size=1, strides=1)
+    print("layer 04 shape:",layer04.shape, "\t1x1 Conv Layer")
+    
+    # TODO: Add the same number of Decoder Blocks as the number of Encoder Blocks
+    layer05 = decoder_block(layer04, layer02, filters=128 )
+    print("layer 05 shape:",layer05.shape, "\tDecoder Block 1")
+    
+    layer06 = decoder_block(layer05, layer01, filters=64  )
+    print("layer 06 shape:",layer06.shape, "  \tDecoder Block 2")
+    
+    layer07 = decoder_block(layer06, inputs , filters=32  )
+    print("layer 07 shape:",layer07.shape, "\tDecoder Block 3")
+    
+    # The function returns the output layer of your model. "layer07" is the final layer obtained from the last decoder_block()
+    outputs = layers.Conv2D(num_classes, 1, activation='softmax', padding='same')(layer07)
+    print("Outputs shape:",outputs.shape, "\tOutput Size in Pixel")
+    
+    return outputs
 ```
 
 # Test the model that have been created in the quadcopter simulator
