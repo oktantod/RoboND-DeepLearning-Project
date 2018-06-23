@@ -337,11 +337,36 @@ validation_steps = 50
 workers = 2
 ```
 
-This training is very hard because I need almost 24 hour to get my model training result. Below is my plotting training loss and validation loss using 20 epochs.
+This training is very hard because I need almost 24 hour to get my model training result get finished. Below is my plotting training loss and validation loss using 20 epochs.
 
 <p align="center"> <img src="./docs/misc/Training.png"> </p>
 
 Each epoch required 4114 second, therefore 20 epochs would be need about 82280 second or 22.8 hour. Detail graphics you can see in model_training.html
+
+#Prediction
+Now that you have your model trained and saved, you can make predictions on your validation dataset. These predictions can be compared to the mask images, which are the ground truth labels, to evaluate how well your model is doing under different conditions.
+
+There are three different predictions available from the helper code provided:
+
+*    patrol_with_targ: Test how well the network can detect the hero from a distance.
+*    patrol_non_targ: Test how often the network makes a mistake and identifies the wrong person as the target.
+*    following_images: Test how well the network can identify the target while following them.
+
+## Patrol with Target
+<p align="center"> <img src="./docs/misc/pwt1.png"> </p>
+<p align="center"> <img src="./docs/misc/pwt2.png"> </p>
+<p align="center"> <img src="./docs/misc/pwt3.png"> </p>
+
+## Patrol without Target
+<p align="center"> <img src="./docs/misc/pwot1.png"> </p>
+<p align="center"> <img src="./docs/misc/pwot2.png"> </p>
+<p align="center"> <img src="./docs/misc/pwot3.png"> </p>
+
+## Patrol with Target while following them
+<p align="center"> <img src="./docs/misc/fi1.png"> </p>
+<p align="center"> <img src="./docs/misc/fi2.png"> </p>
+<p align="center"> <img src="./docs/misc/fi3.png"> </p>
+
 
 # Test the model that have been created in the quadcopter simulator
 
