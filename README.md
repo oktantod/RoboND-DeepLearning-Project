@@ -339,7 +339,7 @@ workers = 2
 
 This training is very hard because I need almost 24 hour to get my model training result. Below is my plotting training loss and validation loss using 20 epochs.
 
-<p align="center"> <img src="./docs/misc/training.png"> </p>
+<p align="center"> <img src="./docs/misc/Training.png"> </p>
 
 Each epoch required 4114 second, therefore 20 epochs would be need about 82280 second or 22.8 hour. Detail graphics you can see in model_training.html
 
