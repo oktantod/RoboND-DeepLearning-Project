@@ -189,6 +189,10 @@ In this learning project, I didn't record train, validation and sample_evaluatio
        <td align="left"> 322 images + 322 masks</td></tr>
 </tbody></table>
 
+# The Design Network Model
+
+
+
 # Test the model that have been created in the quadcopter simulator
 
 The model weights selected is model_weights_new that have final score 40.74, to run this model weight
@@ -199,4 +203,5 @@ The model weights selected is model_weights_new that have final score 40.74, to 
 
 [!Video] (https://youtu.be/cotA3RwEjA8)
 
+[![Simulation Video](http://img.youtube.com/vi/vR2EC16uoZU/0.jpg)](https://youtu.be/cotA3RwEjA8)
 
