@@ -208,7 +208,7 @@ Explanations of how to build the code for FCN Design above would be explain in B
 # Build The Model
 
 ### Separable convolution layer:
-The Encoder for FCN will essentially require separable convolution layers, due to their advantages as explained in the classroom. The 1x1 convolution layer in the FCN, however, is a regular convolution. Implementations for both are provided below for your use. Each includes batch normalization with the ReLU activation function applied to the layers.
+The Encoder for FCN require separable convolution layers. The 1x1 convolution layer in the FCN, however, is a regular convolution. Implementations for both are provided below for your use. Each includes batch normalization with the ReLU activation function applied to the layers.
 ```python
 def separable_conv2d_batchnorm(input_layer, filters, strides=1):
     output_layer = SeparableConv2DKeras(filters=filters,kernel_size=3, strides=strides,
@@ -231,6 +231,44 @@ The following helper function implements the bilinear upsampling layer. Upsampli
 def bilinear_upsample(input_layer):
     output_layer = BilinearUpSampling2D((2,2))(input_layer)
     return output_layer
+```
+
+## TODO Code
+
+### Encoder Block
+Create an encoder block that includes a separable convolution layer using the separable_conv2d_batchnorm() function. The filters parameter defines the size or depth of the output layer.
+```python
+def encoder_block(input_layer, filters, strides):
+    
+    # TODO Create a separable convolution layer using the separable_conv2d_batchnorm() function.
+    output_layer = separable_conv2d_batchnorm(input_layer, filters, strides)
+    
+    return output_layer
+```
+
+### Decoder Block
+The decoder block is comprised of three parts:
+*    A bilinear upsampling layer using the upsample_bilinear() function. The current recommended factor for upsampling is set to 2.
+*    A layer concatenation step. This step is similar to skip connections. You will concatenate the upsampled small_ip_layer and the large_ip_layer.
+*    Some (one or two) additional separable convolution layers to extract some more spatial information from prior layers.
+
+```python
+def decoder_block(small_ip_layer, large_ip_layer, filters):
+    
+    # TODO Upsample the small input layer using the bilinear_upsample() function.
+    upsample_small_ip_layer = bilinear_upsample(small_ip_layer)
+    
+    # TODO Concatenate the upsampled and large input layers using layers.concatenate
+    output_layer = layers.concatenate([upsample_small_ip_layer, large_ip_layer])
+    
+    # TODO Add some number of separable convolution layers
+    output_layer = separable_conv2d_batchnorm( output_layer, filters, strides=1)
+    output_layer = separable_conv2d_batchnorm( output_layer, filters, strides=1)
+    
+    return output_layer
+```
+
+```python
 ```
 
 # Test the model that have been created in the quadcopter simulator
