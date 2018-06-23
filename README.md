@@ -189,9 +189,23 @@ In this learning project, I didn't record train, validation and sample_evaluatio
        <td align="left"> 322 images + 322 masks</td></tr>
 </tbody></table>
 
-# The Design Network Model
+# FCN Layers
+
+In this project, there are seven layers to build a fully convolutional networks (FCN). Three layers for encoder, one layers as one by one convolutional matrix and another three layers as decoder block. See image below:
 
 <p align="center"> <img src="./docs/misc/FCN Design.jpg"> </p>
+
+* The first layer is encoder block layer which have input from image. This layer have filter width 32 and 2 strides.
+* The second layer is encoder block layer which have input from first layer. This layer have filter width 64 and 2 strides.
+* The third layer is encoder block layer which have input from second layer. This layer have filter with width 128 and build from 2 strides.
+* The fourth layer is 1x1 convolution layer using convolution 2D batch normalize.
+* The fifth layer is decoder block layer which have input from 1x1 convolution layer and skip connection from second layer.
+* The sixth layer is decoder block layer which have input from fifth layer and skip connection from the first layer.
+* The last layer is decoder block layer which have input from sixth layer and skip connection from input image. The last layer is an output layer of FCN. This layer have the dimension as same as input image.
+
+Explanations about building the code for FCN Design above would be explain in Build the Model section below
+
+## TODO Code
 
 # Test the model that have been created in the quadcopter simulator
 
