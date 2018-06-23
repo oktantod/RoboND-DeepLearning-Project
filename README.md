@@ -308,7 +308,7 @@ def fcn_model(inputs, num_classes):
 #Training
 Training is my bigest problems. I have facing two problem in AWS account, the first one is AWS reject my request increasing EC2 instance p2.xlarge and the second ones is AWS facing problem when send my promotion code for initial balance by mail. Thanks for support dashboard in AWS, my complain had been approved at 18 June for initial credit. And at 20 June AWS approved for increasing limit in p2.xlarge when I reopen the case. Sadly when all my request had been approved, I moved to my village with lower internet connectivity speed therefore I used my laptop for trained the model. Spesification of my laptop you can see at above explanations.
 
-To increase the speed of training in my laptop, I install the following software and library:
+To increase the speed of training the model in my laptop, I install the following software and library:
 * Latest NVIDIA Driver 398.11
 * CUDA v9.0
 * CuDNN v7.1
@@ -318,8 +318,30 @@ To increase the speed of training in my laptop, I install the following software
 ### Batch Size
 Number of training samples/images that get propagated through the network in a single pass. In this training we used batch_size with value 32.
 ```python
+learning_rate = 0.001
+batch_size = 32
+```
+Learning rate number I had selected is 0.001. I select this lowest number because the first one I select is 0.05 with failure final score 33%.
+
+### Epochs
+#### Number of Epochs
+Number of times the entire training dataset gets propagated through the network. In this training we choose the total number of epochs were 20.
+
+#### Step Each Epoch
+Number of batches of training images that go through the network in 1 epoch. One recommended value to try would be based on the total number of images in training dataset divided by the batch_size. Total number in training data set is 4131 images divided by 32 with the result is 129. We select step each epoch is 200.
+
+```python
+num_epochs = 20
+steps_per_epoch = 200
+validation_steps = 50
+workers = 2
 ```
 
+This training is very hard because I need almost 24 hour to get my model training result. Below is my plotting training loss and validation loss using 20 epochs.
+
+<p align="center"> <img src="./docs/misc/training.png"> </p>
+
+Each epoch required 4114 second, therefore 20 epochs would be need about 82280 second or 22.8 hour. Detail graphics you can see in model_training.html
 
 # Test the model that have been created in the quadcopter simulator
 
