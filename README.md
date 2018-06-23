@@ -200,8 +200,5 @@ The model weights selected is model_weights_new that have final score 40.74, to 
 ```bash
 >python follower.py model_weights_new
 ```
-
-[!Video] (https://youtu.be/cotA3RwEjA8)
-
-[![Simulation Video](http://img.youtube.com/vi/vR2EC16uoZU/0.jpg)](https://youtu.be/cotA3RwEjA8)
+[![Simulation Video]](https://youtu.be/cotA3RwEjA8)
 
