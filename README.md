@@ -198,12 +198,12 @@ In this project, there are seven layers to build a fully convolutional networks 
 * The first layer is encoder block layer which have input from image. This layer have filter width 32 and 2 strides.
 * The second layer is encoder block layer which have input from first layer. This layer have filter width 64 and 2 strides.
 * The third layer is encoder block layer which have input from second layer. This layer have filter with width 128 and build from 2 strides.
-* The fourth layer is 1x1 convolution layer using convolution 2D batch normalize.
+* The fourth layer is 1x1 convolution layer using convolution 2D batch normalize. This layer build with filter width 256, and kernel 1x1 with 1 strides.
 * The fifth layer is decoder block layer which have input from 1x1 convolution layer and skip connection from second layer.
-* The sixth layer is decoder block layer which have input from fifth layer and skip connection from the first layer.
+* The sixth layer is decoder block layer which have input from fifth layer and skip connection from the first layer. The dimension of this layer is same with first layer.
 * The last layer is decoder block layer which have input from sixth layer and skip connection from input image. The last layer is an output layer of FCN. This layer have the dimension as same as input image.
 
-Explanations about building the code for FCN Design above would be explain in Build the Model section below
+Explanations of how to build the code for FCN Design above would be explain in Build the Model section below
 
 ## TODO Code
 
