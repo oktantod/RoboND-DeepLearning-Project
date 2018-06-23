@@ -367,6 +367,45 @@ There are three different predictions available from the helper code provided:
 <p align="center"> <img src="./docs/misc/fi2.png"> </p>
 <p align="center"> <img src="./docs/misc/fi3.png"> </p>
 
+#Evaluation
+Evaluate our model! The following cells include several different scores to help you evaluate your model under the different conditions discussed during the Prediction step.
+### Scores for while the quad is following behind the target.
+```
+number of validation samples intersection over the union evaulated on 542
+average intersection over union for background is 0.9944914007764788
+average intersection over union for other people is 0.3256942366738677
+average intersection over union for the hero is 0.9125996469040777
+number true positives: 539, number false positives: 0, number false negatives: 0
+```
+### Scores for images while the quad is on patrol and the target is not visable
+```
+number of validation samples intersection over the union evaulated on 270
+average intersection over union for background is 0.981193497537517
+average intersection over union for other people is 0.6976223997700709
+average intersection over union for the hero is 0.0
+number true positives: 0, number false positives: 52, number false negatives: 0
+```
+### This score measures how well the neural network can detect the target from far away
+```
+number of validation samples intersection over the union evaulated on 322
+average intersection over union for background is 0.995441234028656
+average intersection over union for other people is 0.40741392661423764
+average intersection over union for the hero is 0.19374283779449622
+number true positives: 118, number false positives: 0, number false negatives: 183
+```
+### Sum all the true positives, etc from the three datasets to get a weight for the score
+```
+0.7365470852017937
+```
+### The IoU for the dataset that never includes the hero is excluded from grading
+```
+0.553171242349
+```
+
+### And the final grade score is 
+```
+0.40743666617
+```
 
 # Test the model that have been created in the quadcopter simulator
 
