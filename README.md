@@ -305,6 +305,22 @@ def fcn_model(inputs, num_classes):
     return outputs
 ```
 
+#Training
+Training is my bigest problems. I have facing two problem in AWS account, the first one is AWS reject my request increasing EC2 instance p2.xlarge and the second ones is AWS facing problem when send my promotion code for initial balance by mail. Thanks for support dashboard in AWS, my complain had been approved at 18 June for initial credit. And at 20 June AWS approved for increasing limit in p2.xlarge when I reopen the case. Sadly when all my request had been approved, I moved to my village with lower internet connectivity speed therefore I used my laptop for trained the model. Spesification of my laptop you can see at above explanations.
+
+To increase the speed of training in my laptop, I install the following software and library:
+* Latest NVIDIA Driver 398.11
+* CUDA v9.0
+* CuDNN v7.1
+
+## Hyperparameters
+
+### Batch Size
+Number of training samples/images that get propagated through the network in a single pass. In this training we used batch_size with value 32.
+```python
+```
+
+
 # Test the model that have been created in the quadcopter simulator
 
 The model weights selected is model_weights_new that have final score 40.74, to run this model weight
