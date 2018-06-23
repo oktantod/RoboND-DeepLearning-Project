@@ -191,8 +191,7 @@ In this learning project, I didn't record train, validation and sample_evaluatio
 
 # The Design Network Model
 
-[FCN_Design]: ./docs/misc/FCN Design.jpg
-![alt text][FCN_Design]
+<p align="center"> <img src="./docs/misc/FCN Design.jpg"> </p>
 
 # Test the model that have been created in the quadcopter simulator
 
