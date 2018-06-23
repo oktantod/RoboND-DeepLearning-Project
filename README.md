@@ -2,7 +2,7 @@
 
 ## Deep Learning Project - Follow Me ##
 
-In this project, you will train a deep neural network to identify and track a target in simulation. So-called “follow me” applications like this are key to many fields of robotics and the very same techniques you apply here could be extended to scenarios like advanced cruise control in autonomous vehicles or human-robot collaboration in industry.
+In this projectwe will train a deep neural network, especially Fully Convolutional Neural Network (FCN) to identify and track a target in simulation. So-called “follow me” applications like this are key to many fields of robotics and the very same techniques you apply here could be extended to scenarios like advanced cruise control in autonomous vehicles or human-robot collaboration in industry.
 
 [image_0]: ./docs/misc/followme.jpg
 ![alt text][image_0] 
@@ -172,6 +172,23 @@ $ python follower.py my_amazing_model.h5
 # Write Up Report Follow Me Project
 ## Write Up by Dedi
 
+# Data Collection
+
+In this learning project, I didn't record train, validation and sample_evaluation_data data from quadcopter simulator. I used train and validation data from link above to get weight from the network model that I have design. 
+
+<table><tbody>
+    <tr><th align="center" colspan="3"> Data Set 1</td></tr>
+    <tr><th align="center">Folder</th><th align="center">Content</th></tr>
+    <tr><td align="left">/data/train</td><td align="left">4,131 images + 4,131 masks</td></tr>
+    <tr><td align="left">/data/validation</td><td align="left">1,184 images + 1,184 masks</td></tr>    
+    <tr><td align="left">/data/sample_evalution_data/following_images</td>
+       <td align="left">542 images + 542 masks</td></tr><tr>
+    <td align="left">/data/sample_evalution_data/patrol_non_targ</td>
+       <td align="left"> 270 images + 270 masks</td></tr><tr>
+    <td align="left">/data/sample_evalution_data/patrol_with_targ</td>
+       <td align="left"> 322 images + 322 masks</td></tr>
+</tbody></table>
+
 # Test the model that have been created in the quadcopter simulator
 
 The model weights selected is model_weights_new that have final score 40.74, to run this model weight
@@ -179,7 +196,6 @@ The model weights selected is model_weights_new that have final score 40.74, to 
 ```bash
 >python follower.py model_weights_new
 ```
-
 
 [!Video] (https://youtu.be/cotA3RwEjA8)
 
