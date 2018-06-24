@@ -204,6 +204,7 @@ Here is the screenshot from the paper, which elucidates above points:
 
 It can be seen from the image on the right, that 1x1 convolutions (in yellow), are specially used before 3x3 and 5x5 convolution to reduce the dimensions. It should be noted that a two step convolution operation can always to combined into one, but in this case and in most other deep learning networks, convolutions are followed by non-linear activation and hence convolutions are no longer linear operators and cannot be combined.
 
+Image without Skip Connections:
 <p align="center"> <img src="./docs/misc/FirstResultFCN_No_Skips.png"> </p>
 
 Everytime we do convolution (down sampling), we are facing one problem with this approach that is we lose some information; we keep the smaller picture (the local context) and lose the bigger picture (the global context) for example if we are using max-pooling to reduce the size of the input, and allow the neural network to focus on only the most important elements. Max pooling does this by only retaining the maximum value for each filtered area, and removing the remaining values.
