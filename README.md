@@ -183,6 +183,12 @@ A Convolution Neural Network may have several layer which is each layer might ca
 The highest level of hierarchy or the last convolutional layer then connected with classification layer which is consist with fully connected layer and softmax . From this layer, the input would be classified as which object. CNN are usually used to classify object inside an image.
 
 ### Fully Convolutional Neural Network (FCN)
+CNN very useful for tackling tasks such as image classification, which just want to determine 'what' is the object in a image. But when we want to know 'where' is in the image a certain object, CNN would not work since fully connected layers remove any sense of spacial information. Therefore Fully Convolutional Network (FCN), will perform this task.
+
+A FCN is a CNN, which is the classification layer is replace with 1x1 convolution layer with a large "receptive field".  The purpose in here is to get the global context of the scene and enable us to get what are the object on image and their spatial information. The output of this network not only contain object classification but also the scene of segmentation.
+
+<p align="center"> <img src="./docs/misc/FCN.png"> </p>
+
 
 
 # Data Collection
