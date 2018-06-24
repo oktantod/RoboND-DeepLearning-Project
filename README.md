@@ -173,13 +173,18 @@ $ python follower.py my_amazing_model.h5
 ## Write Up by Dedi
 
 # Networks
-Convolutional Neural Network (CNN)
+### Convolutional Neural Network (CNN)
 Convolutional neural network have architecture as image below:
 <p align="center"> <img src="./docs/misc/CNN_Architecture.png"> </p>
+<p align="center"> <img src="./docs/misc/CNN_Classifications.png"> </p>
 
 A Convolution Neural Network may have several layer which is each layer might capture a different level in the hierarchy of object. The first layer called as lowest level hierarchy, where CNN may classifies small parth of the image into simple shapes like horizontal and vertical linea and simple blobs of colors. The last layers tend to be highest level in the hierarchy and may classify more complex ideas like shapes and eventually full object like cars. All this convolutional layer also called as feature learning.
   
 The highest level of hierarchy or the last convolutional layer then connected with classification layer which is consist with fully connected layer and softmax . From this layer, the input would be classified as which object. CNN are usually used to classify object inside an image.
+
+### Fully Convolutional Neural Network (FCN)
+
+
 # Data Collection
 
 In this learning project, I didn't record train, validation and sample_evaluation_data data from quadcopter simulator. I used train and validation data from link above to get weight from the network model that I have design. 
@@ -433,3 +438,6 @@ I have training the model using my laptop which have a standard graphical card w
 3. Change Hyperparameters
 In this project, I used epochs and steps_per_epoch limited to get passing required scores. I need to increase the number of epochs to increase my model final scores.
 
+References:
+https://www.researchgate.net/publication/277335071_A_Bottom-Up_Approach_for_Pancreas_Segmentation_Using_Cascaded_Superpixels_and_Deep_Image_Patch_Labeling
+https://www.researchgate.net/publication/220785200_Efficiency_Optimization_of_Trainable_Feature_Extractors_for_a_Consumer_Platform
