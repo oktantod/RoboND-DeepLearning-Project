@@ -185,11 +185,38 @@ The highest level of hierarchy or the last convolutional layer then connected wi
 ### Fully Convolutional Neural Network (FCN)
 CNN very useful for tackling tasks such as image classification, which just want to determine 'what' is the object in a image. But when we want to know 'where' is in the image a certain object, CNN would not work since fully connected layers remove any sense of spacial information. Therefore Fully Convolutional Network (FCN), will perform this task.
 
-A FCN is a CNN, which is the classification layer is replace with 1x1 convolution layer with a large "receptive field".  The purpose in here is to get the global context of the scene and enable us to get what are the object on image and their spatial information. The output of this network not only contain object classification but also the scene of segmentation.
+A FCN is a CNN, which is the classification layer is replace with 1x1 convolution layer with a large "receptive field" and add with upscale layer which called as decoder.  The purpose in here is to get the global context of the scene and enable us to get what are the object on image and their spatial information. The output of this network not only contain object classification but also the scene of segmentation.
 
 <p align="center"> <img src="./docs/misc/FCN.png"> </p>
 
+The structure of FCN is divide by two part that is encoder layer part which will extract feature from the image and decoder layer part which will upscale the output of the encoder so the output will have the original size of the image. This two part connected with 1x1 convolution layer.
 
+a 1x1 convolution simply maps an input pixel with all its channel to an output pixel, not looking at anything around itself. It is often used to reduce the number of depth channels, since it is often very slow to multiply volumes with extremely large depths.
+
+When we convert our last fully connected (FC) layer of the CNN to a 1x1 convolutional layer we choose our new conv layer to be big enough so that it will enable us to have this localization effect scaled up to our original input image size then activate pixels to indicate objects and their approximate locations in the scene as shown in above figure. replacement of fully-connected layers with convolutional layers presents an added advantage that during inference (testing your model), you can feed images of any size into your trained network.
+
+In GoogLeNet architecture, 1x1 convolution is used for two purposes
+* To make network deep by adding an "inception module" like Network in network paper
+* To reduce the dimensions inside this "inception module"
+
+Here is the screenshot from the paper, which elucidates above points:
+<p align="center"> <img src="./docs/misc/inception_1x1.png"> </p>
+
+It can be seen from the image on the right, that 1x1 convolutions (in yellow), are specially used before 3x3 and 5x5 convolution to reduce the dimensions. It should be noted that a two step convolution operation can always to combined into one, but in this case and in most other deep learning networks, convolutions are followed by non-linear activation and hence convolutions are no longer linear operators and cannot be combined.
+
+<p align="center"> <img src="./docs/misc/FirstResultFCN_No_Skips.png"> </p>
+
+Everytime we do convolution (down sampling), we are facing one problem with this approach that is we lose some information; we keep the smaller picture (the local context) and lose the bigger picture (the global context) for example if we are using max-pooling to reduce the size of the input, and allow the neural network to focus on only the most important elements. Max pooling does this by only retaining the maximum value for each filtered area, and removing the remaining values.
+
+To solve this problem we also get some activation from previous layers and sum/interpolate them together. This process is called "skip" from the creators of this algorithm.
+
+Those up-sampling operations used on skip are also learn-able.
+
+<p align="center"> <img src="./docs/misc/Skip_Layers_FCN.png"> </p>
+
+Below we show the effects of this "skip" process, notice how the resolution of the segmentation improves after some "skips"
+
+<p align="center"> <img src="./docs/misc/AllSkips_FCN.png"> </p>
 
 # Data Collection
 
@@ -445,5 +472,8 @@ I have training the model using my laptop which have a standard graphical card w
 In this project, I used epochs and steps_per_epoch limited to get passing required scores. I need to increase the number of epochs to increase my model final scores.
 
 References:
-https://www.researchgate.net/publication/277335071_A_Bottom-Up_Approach_for_Pancreas_Segmentation_Using_Cascaded_Superpixels_and_Deep_Image_Patch_Labeling
-https://www.researchgate.net/publication/220785200_Efficiency_Optimization_of_Trainable_Feature_Extractors_for_a_Consumer_Platform
+* https://www.researchgate.net/publication/277335071_A_Bottom-Up_Approach_for_Pancreas_Segmentation_Using_Cascaded_Superpixels_and_Deep_Image_Patch_Labeling
+* https://www.researchgate.net/publication/220785200_Efficiency_Optimization_of_Trainable_Feature_Extractors_for_a_Consumer_Platform
+* https://iamaaditya.github.io/2016/03/one-by-one-convolution/
+* Network in Networks Paper : arxiv.org/pdf/1312.4400v3.pdf
+* https://leonardoaraujosantos.gitbooks.io/artificial-inteligence/content/image_segmentation.html
