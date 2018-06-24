@@ -2,7 +2,7 @@
 
 ## Deep Learning Project - Follow Me ##
 
-In this projectwe will train a deep neural network, especially Fully Convolutional Neural Network (FCN) to identify and track a target in simulation. So-called “follow me” applications like this are key to many fields of robotics and the very same techniques you apply here could be extended to scenarios like advanced cruise control in autonomous vehicles or human-robot collaboration in industry.
+In this project we will train a deep neural network, especially Fully Convolutional Neural Network (FCN) to identify and track a target in simulation. So-called “follow me” applications like this are key to many fields of robotics and the very same techniques you apply here could be extended to scenarios like advanced cruise control in autonomous vehicles or human-robot collaboration in industry.
 
 [image_0]: ./docs/misc/followme.jpg
 ![alt text][image_0] 
@@ -171,6 +171,11 @@ $ python follower.py my_amazing_model.h5
 
 # Write Up Report Follow Me Project
 ## Write Up by Dedi
+
+# Networks
+Convolutional Neural Network (CNN)
+Convolutional neural network have architecture as image below:
+align="center"> <img src="./docs/misc/CNN_Architecture.png"> </p>
 
 # Data Collection
 
@@ -415,4 +420,13 @@ The model weights selected is model_weights_new that have final score 40.74, to 
 >python follower.py model_weights_new
 ```
 [[Simulation Video]](https://youtu.be/cotA3RwEjA8)
+
+# Future Enhancement
+For future enhancement, there are several thing that need to be improved to increased final model score and accuracy in simulator that is:
+1. Increased Data Training.
+In this project I didn't record any data train manually except I used data train that provide by udacity. To get more data train, I must add data train that provided by udacity with data train that I will collecting manually.
+2. Decreased Time Training
+I have training the model using my laptop which have a standard graphical card which give me about 22.8 hour to finish model training. Because my EC2 Instances limit increase request have been approved by AWS, I will train my model using AWS Services.
+3. Change Hyperparameters
+In this project, I used epochs and steps_per_epoch limited to get passing required scores. I need to increase the number of epochs to increase my model final scores.
 
